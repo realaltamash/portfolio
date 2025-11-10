@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Altamash Mirza - Front-end Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bg-animation"></div>
+    <!-- Cursor follower -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Particle background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Animated background layers -->
+    <div class="bg-layer layer-1"></div>
+    <div class="bg-layer layer-2"></div>
+    <div class="bg-layer layer-3"></div>
+
+    <!-- Floating geometric shapes -->
+    <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
     <nav>
         <div class="container">
-            <div class="logo">ALTAMASH</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                ALTAMASH
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home"><span class="nav-number">01.</span>Home</a></li>
+                    <li><a href="#skills"><span class="nav-number">02.</span>Skills</a></li>
+                    <li><a href="#projects"><span class="nav-number">03.</span>Projects</a></li>
+                    <li><a href="#experience"><span class="nav-number">04.</span>Experience</a></li>
+                    <li><a href="#contact"><span class="nav-number">05.</span>Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -26,24 +55,70 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>MIRZA ALTAMASH</h1>
-                    <div class="subtitle">Front-end Developer</div>
-                    <p>Versatile professional with a Bachelor's in Computer Applications, skilled in Front-End development and design. Passionate about creating modern, responsive web experiences with 2+ years of content creation experience.</p>
-                    <a href="#contact" class="cta-button">Get In Touch</a>
+                    <div class="glitch-wrapper">
+                        <h1 class="glitch" data-text="MIRZA ALTAMASH">MIRZA ALTAMASH</h1>
+                    </div>
+                    <div class="subtitle-wrapper">
+                        <div class="subtitle">
+                            <span class="typing-text"></span>
+                            <span class="cursor-blink">|</span>
+                        </div>
+                    </div>
+                    <p class="hero-description">
+                        <span class="text-highlight">Versatile professional</span> with a Bachelor's in Computer Applications, 
+                        skilled in <span class="text-highlight">Front-End development</span> and design. 
+                        Passionate about creating <span class="text-highlight">modern, responsive</span> web experiences 
+                        with 2+ years of content creation experience.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#contact" class="cta-button cta-primary">
+                            <span>Get In Touch</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#projects" class="cta-button cta-secondary">
+                            <span>View Projects</span>
+                        </a>
+                    </div>
+                    <div class="scroll-indicator">
+                        <span>Scroll Down</span>
+                        <div class="scroll-line"></div>
+                    </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="profile-card">
-                        <h3>📍 Location</h3>
-                        <p style="color: var(--text-secondary);">Pune, Maharashtra</p>
-                        
-                        <h3 style="margin-top: 1.5rem;">🎓 Education</h3>
-                        <p style="color: var(--text-secondary);">BCA - GPA 9.17</p>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Institute of Technology and Management, Nanded</p>
-                        
-                        <div class="social-links">
-                            <a href="https://linkedin.com/in/altamashmirza" target="_blank" title="LinkedIn">in</a>
-                            <a href="https://github.com/realaltamash" target="_blank" title="GitHub">gh</a>
-                            <a href="https://instagram.com/purrfect.palette" target="_blank" title="Instagram">ig</a>
+                    <div class="profile-3d-card">
+                        <div class="card-glow"></div>
+                        <div class="profile-content">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">9.17</div>
+                                    <div class="stat-label">GPA</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">2+</div>
+                                    <div class="stat-label">Years</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">10+</div>
+                                    <div class="stat-label">Projects</div>
+                                </div>
+                            </div>
+                                <div class="location-tag">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                <span>Pusad, Maharashtra, India</span>
+                            </div>
+                            <div class="education-info">
+                                <h4>🎓 Bachelor's of Computer Application</h4>
+                                <p style="color: var(--text-secondary); margin-top: 0.5rem;">Institute of Technology and Management, Nanded</p>
+                            </div>
+                            <div class="social-links-hero">
+                                <a href="https://linkedin.com/in/altamashmirza" target="_blank" class="social-link" title="LinkedIn">in</a>
+                                <a href="https://github.com/realaltamash" target="_blank" class="social-link" title="GitHub">gh</a>
+                                <a href="https://instagram.com/purrfect.palette" target="_blank" class="social-link" title="Instagram">ig</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,27 +128,27 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title"><span>Skills & Technologies</span></h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>HTML</h3>
-                    <p style="color: var(--text-secondary);">Semantic markup</p>
+                    <h3>HTML5</h3>
+                    <p style="color: var(--text-secondary);">Semantic markup & structure</p>
                 </div>
                 <div class="skill-card">
-                    <h3>CSS</h3>
-                    <p style="color: var(--text-secondary);">Modern styling</p>
+                    <h3>CSS3</h3>
+                    <p style="color: var(--text-secondary);">Modern styling & animations</p>
                 </div>
                 <div class="skill-card">
                     <h3>JavaScript</h3>
-                    <p style="color: var(--text-secondary);">Interactive UIs</p>
+                    <p style="color: var(--text-secondary);">Interactive experiences</p>
                 </div>
                 <div class="skill-card">
                     <h3>Bootstrap</h3>
-                    <p style="color: var(--text-secondary);">Responsive design</p>
+                    <p style="color: var(--text-secondary);">Responsive frameworks</p>
                 </div>
                 <div class="skill-card">
                     <h3>MySQL</h3>
-                    <p style="color: var(--text-secondary);">Database basics</p>
+                    <p style="color: var(--text-secondary);">Database management</p>
                 </div>
                 <div class="skill-card">
                     <h3>Python</h3>
@@ -81,11 +156,11 @@
                 </div>
                 <div class="skill-card">
                     <h3>UI/UX Design</h3>
-                    <p style="color: var(--text-secondary);">User interfaces</p>
+                    <p style="color: var(--text-secondary);">User-centered design</p>
                 </div>
                 <div class="skill-card">
                     <h3>Figma</h3>
-                    <p style="color: var(--text-secondary);">Design tools</p>
+                    <p style="color: var(--text-secondary);">Design & prototyping</p>
                 </div>
             </div>
         </div>
@@ -93,7 +168,7 @@
 
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title"><span>Featured Projects</span></h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
@@ -101,10 +176,10 @@
                     </div>
                     <div class="project-content">
                         <h3>Car Rental Website</h3>
-                        <p>Final year project for a car rental company featuring a complete booking system with responsive design and MySQL database integration.</p>
+                        <p>Final year project featuring a complete booking system with responsive design and MySQL database integration. Built with modern web technologies to provide seamless user experience.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Bootstrap</span>
                             <span class="tech-tag">MySQL</span>
@@ -117,10 +192,10 @@
                     </div>
                     <div class="project-content">
                         <h3>Travel Booking Platform</h3>
-                        <p>Collaborated with seniors on front-end development for a travel booking platform with modern UI/UX and responsive design.</p>
+                        <p>Collaborated on front-end development for a comprehensive travel booking platform with modern UI/UX design principles and fully responsive layouts.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Bootstrap</span>
                         </div>
@@ -132,7 +207,7 @@
 
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">Experience & Achievements</h2>
+            <h2 class="section-title"><span>Experience & Achievements</span></h2>
             <div class="experience-grid">
                 <div class="experience-card">
                     <div class="experience-header">
@@ -142,17 +217,17 @@
                         </div>
                         <span class="experience-date">2019 - Present</span>
                     </div>
-                    <p style="color: var(--text-secondary);">Capturing the macro beauty of nature as a hobby. Successfully utilized Instagram ads to reach new audiences and grow organic engagement. Managing @purrfect.palette with 2+ years of consistent content creation.</p>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">Capturing the macro beauty of nature as a hobby. Successfully utilized Instagram ads to reach new audiences and grow organic engagement. Managing @purrfect.palette with 2+ years of consistent content creation, demonstrating creativity and digital marketing skills.</p>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Event Manager</h3>
-                            <p style="color: var(--text-secondary);">College Festival</p>
+                            <p style="color: var(--text-secondary);">College Festival Leadership</p>
                         </div>
                         <span class="experience-date">College Years</span>
                     </div>
-                    <p style="color: var(--text-secondary);">Demonstrated leadership abilities through event management role at college festival. Coordinated teams, managed logistics, and ensured successful event execution.</p>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">Demonstrated strong leadership abilities through event management role at college festival. Coordinated teams, managed logistics, and ensured successful event execution. Developed valuable project management and team collaboration skills.</p>
                 </div>
             </div>
         </div>
@@ -161,9 +236,14 @@
     <section id="contact">
         <div class="container">
             <div class="contact-content">
-                <h2 class="section-title">Let's Work Together</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
-                <a href="mailto:altamash.connect@gmail.com" class="cta-button">Email Me Directly</a>
+                <h2 class="section-title"><span>Let's Work Together</span></h2>
+                <p>I'm currently looking for new opportunities and exciting projects. Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out!</p>
+                <a href="mailto:altamash.connect@gmail.com" class="cta-button cta-primary">
+                    <span>Email Me Directly</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
                 
                 <div class="contact-info">
                     <div class="contact-item">
@@ -188,7 +268,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Mirza Altamash. Built with passion and code.</p>
+        <p>&copy; 2025 Mirza Altamash. Crafted with 💙 and code.</p>
     </footer>
 
     <script src="script.js"></script>
